@@ -1,0 +1,5 @@
+aubio-sonicpi (0.4.5-0) unstable; urgency=low
+
+  * Packaging of Aubio 0.4.5 required for Sonic Pi
+
+ -- Team Kano <dev@kano.me>  Mon, 21 May 2018 17:00:00 +0000

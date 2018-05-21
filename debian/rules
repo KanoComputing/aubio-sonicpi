@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+AUBIO_VERSION=0.4.5
+AUBIO_DIR=aubio
+
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	git clone https://git.aubio.org/git/aubio
+	cd $(AUBIO_DIR) && git checkout $(AUBIO_VERSION)
+	cd $(AUBIO_DIR) && make getwaf
+	cd $(AUBIO_DIR) && ./waf configure --prefix=../debian/aubio-sonicpi/usr/
+	cd $(AUBIO_DIR) && ./waf build
+
+override_dh_auto_install:
+	cd $(AUBIO_DIR) && ./waf install
